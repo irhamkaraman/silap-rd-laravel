@@ -214,17 +214,17 @@
             </div>
 
             @else
-            <ol aria-label="Timeline penanganan" class="relative space-y-0 pl-8">
+            <ol aria-label="Timeline penanganan" class="relative space-y-0 pl-12">
                 {{-- Vertical line --}}
-                <div class="absolute left-3.5 top-8 bottom-4 w-px"
+                <div class="absolute left-4 top-8 bottom-4 w-px"
                      style="background: linear-gradient(to bottom, rgba(99,102,241,0.5), rgba(99,102,241,0.05));"
                      aria-hidden="true"></div>
 
                 {{-- First entry: complaint submitted --}}
                 <li class="relative pb-6">
-                    <div class="absolute -left-[1.125rem] top-1 w-7 h-7 rounded-full flex items-center justify-center shadow-sm z-10"
+                    <div class="absolute -left-12 top-0.5 w-8 h-8 rounded-full flex items-center justify-center shadow-sm z-10"
                          style="background: var(--bg-surface); border: 2px solid var(--border-subtle);" aria-hidden="true">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-3.5 h-3.5" style="color: var(--text-muted);">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4" style="color: var(--text-muted);">
                             <path d="M2.5 3A1.5 1.5 0 0 0 1 4.5v.793c.026.009.051.02.076.032L7.674 8.51c.206.1.446.1.652 0l6.598-3.185A.755.755 0 0 1 15 5.293V4.5A1.5 1.5 0 0 0 13.5 3h-11Z"/>
                             <path d="M15 6.954 8.978 9.86a2.25 2.25 0 0 1-1.956 0L1 6.954V11.5A1.5 1.5 0 0 0 2.5 13h11a1.5 1.5 0 0 0 1.5-1.5V6.954Z"/>
                         </svg>
@@ -245,18 +245,28 @@
                     x-data x-intersect.once="$el.classList.add('visible')"
                     class="reveal"
                     style="transition-delay: {{ $loop->index * 0.1 }}s;">
-                    <div class="absolute -left-[1.125rem] top-1 w-7 h-7 rounded-full flex items-center justify-center shadow-md z-10"
+                    <div class="absolute -left-12 top-0.5 w-8 h-8 rounded-full flex items-center justify-center shadow-md z-10"
                          style="background: var(--gradient-accent);" aria-hidden="true">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="white" class="w-3.5 h-3.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="white" class="w-4 h-4">
                             <path fill-rule="evenodd" d="M8 15A7 7 0 1 0 8 1a7 7 0 0 0 0 14Zm3.844-8.791a.75.75 0 0 0-1.188-.918l-3.7 4.79-1.649-1.833a.75.75 0 1 0-1.114 1.004l2.25 2.5a.75.75 0 0 0 1.15-.062l4.25-5.5Z" clip-rule="evenodd"/>
                         </svg>
                     </div>
 
                     <article class="glass-deep rounded-xl p-4 ml-2">
                         <div class="flex items-center justify-between gap-3 mb-2 flex-wrap">
+                            @php
+                                $responderName = 'Sistem';
+                                if ($response->user) {
+                                    $responderName = $response->user->name;
+                                    $agencyName = $response->user->agency?->name ?? $complaint->agency?->name;
+                                    if ($agencyName) {
+                                        $responderName .= ' (' . $agencyName . ')';
+                                    }
+                                }
+                            @endphp
                             <span class="text-xs font-bold px-2.5 py-1 rounded-full"
                                   style="background: rgba(99,102,241,0.12); color: #6366f1;">
-                                {{ $response->user->name ?? 'Petugas' }}
+                                {{ $responderName }}
                             </span>
                             <time class="text-xs" style="color: var(--text-muted);"
                                   datetime="{{ $response->created_at->toIso8601String() }}"
