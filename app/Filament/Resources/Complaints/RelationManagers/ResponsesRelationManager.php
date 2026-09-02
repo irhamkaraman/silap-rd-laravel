@@ -37,19 +37,6 @@ class ResponsesRelationManager extends RelationManager
             ]);
     }
 
-    /**
-     * Automatically inject the authenticated admin's user_id before saving.
-     *
-     * @param  array<string, mixed>  $data
-     * @return array<string, mixed>
-     */
-    protected function mutateFormDataBeforeCreate(array $data): array
-    {
-        $data['user_id'] = auth()->id();
-
-        return $data;
-    }
-
     public function table(Table $table): Table
     {
         return $table
@@ -78,7 +65,11 @@ class ResponsesRelationManager extends RelationManager
                 CreateAction::make()
                     ->label('Tambah Respons')
                     ->icon('heroicon-o-plus-circle')
-                    ->modalHeading('Tambah Respons / Pembaruan'),
+                    ->modalHeading('Tambah Respons / Pembaruan')
+                    ->mutateFormDataUsing(function (array $data): array {
+                        $data['user_id'] = auth()->id();
+                        return $data;
+                    }),
             ])
             ->recordActions([
                 DeleteAction::make(),
