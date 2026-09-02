@@ -5,7 +5,7 @@ namespace App\Filament\Resources\Complaints\Schemas;
 use Filament\Infolists\Components\IconEntry;
 use Filament\Infolists\Components\ImageEntry;
 use Filament\Infolists\Components\RepeatableEntry;
-use Filament\Infolists\Components\Split;
+// use Filament\Infolists\Components\Split;
 use Filament\Infolists\Components\TextEntry;
 use Filament\Schemas\Components\Grid;
 use Filament\Schemas\Components\Section;
@@ -17,8 +17,7 @@ class ComplaintInfolist
     {
         return $schema
             ->components([
-                Split::make([
-                    // LEFT COLUMN (Main Content)
+                Grid::make(['default' => 1, 'lg' => 3])->schema([
                     Grid::make(1)->schema([
                         Section::make('Informasi Utama')
                             ->icon('heroicon-o-information-circle')
@@ -101,9 +100,8 @@ class ComplaintInfolist
                                     ->columns(3)
                                     ->contained(false),
                             ]),
-                    ]),
+                    ])->columnSpan(['lg' => 2]),
 
-                    // RIGHT COLUMN (Sidebar Info)
                     Grid::make(1)->schema([
                         Section::make('Kategori & Instansi')
                             ->icon('heroicon-o-tag')
@@ -141,8 +139,8 @@ class ComplaintInfolist
                                     ->trueColor('success')
                                     ->falseColor('gray'),
                             ]),
-                    ]),
-                ])->from('lg')->columnSpanFull(),
+                    ])->columnSpan(['lg' => 1]),
+                ])->columnSpanFull(),
             ]);
     }
 }
