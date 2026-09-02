@@ -5,14 +5,7 @@
 
 {{-- ── PAGE HEADER ─────────────────────────────────────────────────────── --}}
 <div class="stagger max-w-xl mb-10">
-    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold mb-4"
-         style="background: rgba(99,102,241,0.12); color: #6366f1; border: 1px solid rgba(99,102,241,0.20);">
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-3.5 h-3.5" aria-hidden="true">
-            <path fill-rule="evenodd" d="M9 3.5a5.5 5.5 0 1 0 0 11 5.5 5.5 0 0 0 0-11ZM2 9a7 7 0 1 1 12.452 4.391l3.328 3.329a.75.75 0 1 1-1.06 1.06l-3.329-3.328A7 7 0 0 1 2 9Z" clip-rule="evenodd"/>
-        </svg>
-        Sistem Pelacakan Real-time
-    </div>
-    <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-3" style="color: var(--text-primary)">Lacak Pengaduan</h1>
+    <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight mb-3 serif-title" style="color: var(--text-primary)">Lacak Pengaduan</h1>
     <p class="text-base leading-relaxed" style="color: var(--text-secondary)">
         Masukkan kode yang Anda terima saat mengirim laporan<br class="hidden sm:block">
         untuk melihat status dan riwayat penanganan.
@@ -128,7 +121,7 @@
             <div class="px-5 sm:px-6 py-5 space-y-5">
                 {{-- Title + meta --}}
                 <div>
-                    <h2 id="complaint-title" class="text-xl font-bold mb-2" style="color: var(--text-primary);">
+                    <h2 id="complaint-title" class="text-2xl font-bold mb-2 serif-title" style="color: var(--text-primary);">
                         {{ $complaint->title }}
                     </h2>
                     <div class="flex flex-wrap gap-x-5 gap-y-1.5 text-xs" style="color: var(--text-muted);">
@@ -191,7 +184,7 @@
 
         {{-- ─ Response Timeline ─────────────────────────────────────────── --}}
         <section aria-labelledby="timeline-heading">
-            <h2 id="timeline-heading" class="flex items-center gap-2.5 text-base font-bold mb-5" style="color: var(--text-primary);">
+            <h2 id="timeline-heading" class="flex items-center gap-2.5 text-xl font-bold mb-5 serif-title" style="color: var(--text-primary);">
                 <div class="w-7 h-7 rounded-lg flex items-center justify-center" style="background: rgba(99,102,241,0.12);" aria-hidden="true">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="currentColor" class="w-4 h-4" style="color: #6366f1;">
                         <path fill-rule="evenodd" d="M1 8a7 7 0 1 1 14 0A7 7 0 0 1 1 8Zm7.75-4.25a.75.75 0 0 0-1.5 0V8c0 .414.336.75.75.75h3.25a.75.75 0 0 0 0-1.5h-2.5v-3.5Z" clip-rule="evenodd"/>

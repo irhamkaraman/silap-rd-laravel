@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id" x-data x-init="$store.theme.init()" :class="{ dark: $store.theme.dark }" class="scroll-smooth">
+<html lang="id" class="scroll-smooth dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -61,16 +61,74 @@
         }
         .swal2-close { font-size: 1.25rem !important; color: var(--text-muted) !important; }
         .swal2-timer-progress-bar { background: linear-gradient(90deg, #3b82f6, #6366f1) !important; height: 3px !important; }
+    <style>
+        /* ── Grain & Video Background ── */
+        .grain {
+            position: fixed;
+            inset: -50%;
+            width: 200%;
+            height: 200%;
+            pointer-events: none;
+            z-index: 1;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+            background-size: 200px 200px;
+        }
+        .hero-photo {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            overflow: hidden;
+            opacity: 1;
+        }
+        .hero-photo video {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+        }
+        .hero-photo::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                to bottom,
+                rgba(0,0,0,0.85) 0%,
+                rgba(0,0,0,0.75) 40%,
+                rgba(0,0,0,0.95) 100%
+            );
+        }
+        .serif-title {
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-weight: 400;
+        }
     </style>
 
     @stack('styles')
 </head>
-<body class="min-h-screen transition-colors duration-300">
+<body class="min-h-screen">
+
+    <!-- Grain -->
+    <div class="grain" aria-hidden="true"></div>
+
+    <!-- Video background -->
+    <div class="hero-photo" aria-hidden="true">
+        <video
+            src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260818_072341_50851634-bbc3-4c33-9acc-7647d4db44aa.mp4"
+            autoplay
+            muted
+            loop
+            playsinline
+        ></video>
+    </div>
 
     {{-- Skip to content --}}
     <a href="#main-content"
        class="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-1/2 focus:-translate-x-1/2 focus:z-[9999] focus:px-5 focus:py-2.5 focus:rounded-xl focus:text-sm focus:font-semibold focus:shadow-lg"
-       style="background: var(--gradient-accent); color: #fff;">
+       style="background: #ffffff; color: #000;">
         Langsung ke konten
     </a>
 
@@ -84,51 +142,35 @@
             <div class="flex items-center justify-between h-16">
 
                 {{-- Brand --}}
-                <a href="{{ route('complaints.create') }}"
+                <a href="{{ url('/') }}"
                    class="flex items-center gap-3 group"
                    aria-label="SILAP-RD — Beranda">
-                    <div class="w-9 h-9 rounded-xl flex items-center justify-center shadow-md transition-transform duration-300 group-hover:scale-110 animate-float"
-                         style="background: var(--gradient-accent);" aria-hidden="true">
-                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white" class="w-5 h-5">
-                            <path d="M4.913 2.658c2.075-.27 4.19-.408 6.337-.408 2.147 0 4.262.139 6.337.408 1.922.25 3.291 1.861 3.405 3.727a4.403 4.403 0 0 0-1.032-.211 50.89 50.89 0 0 0-8.42 0c-2.358.196-4.04 2.19-4.04 4.434v4.286a4.47 4.47 0 0 0 2.433 3.984L7.28 21.53A.75.75 0 0 1 6 21v-4.03a48.527 48.527 0 0 1-1.087-.128C2.905 16.58 1.5 14.833 1.5 12.862V6.638c0-1.97 1.405-3.718 3.413-3.979Z" />
-                            <path d="M15.75 7.5c-1.376 0-2.739.057-4.086.169C10.124 7.797 9 9.103 9 10.609v4.285c0 1.507 1.128 2.814 2.67 2.94 1.243.102 2.5.157 3.768.165l2.782 2.781a.75.75 0 0 0 1.28-.53v-2.39l.33-.026c1.542-.125 2.67-1.433 2.67-2.94v-4.286c0-1.505-1.125-2.811-2.664-2.94A49.392 49.392 0 0 0 15.75 7.5Z" />
+                    <div class="text-white">
+                        <svg class="w-6 h-6 transition-transform group-hover:-rotate-12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                            <g transform="rotate(-30 12 12)">
+                                <circle cx="7.3" cy="3.2" r="1.45"/>
+                                <rect x="5.5" y="4.7" width="3.6" height="14.6" rx="1.8"/>
+                                <rect x="14.9" y="4.7" width="3.6" height="14.6" rx="1.8"/>
+                                <circle cx="16.7" cy="20.8" r="1.45"/>
+                            </g>
                         </svg>
                     </div>
                     <div class="leading-tight">
-                        <div class="text-sm font-bold" style="color: var(--text-primary)">SILAP-RD</div>
-                        <div class="text-[10px] hidden sm:block" style="color: var(--text-muted)">Layanan Pengaduan Ramah Disabilitas</div>
+                        <div class="text-sm font-bold text-white tracking-tight">SILAP-RD</div>
                     </div>
                 </a>
 
-                {{-- Desktop Nav --}}
                 <nav class="hidden sm:flex items-center gap-1" aria-label="Menu utama">
                     <a href="{{ route('complaints.create') }}"
-                       class="px-4 py-2 rounded-xl text-sm font-medium transition-all duration-200
-                              {{ request()->routeIs('complaints.create') ? 'text-white shadow-md' : 'hover:bg-white/10' }}"
-                       style="{{ request()->routeIs('complaints.create') ? 'background: var(--gradient-accent);' : 'color: var(--text-secondary);' }}">
+                       class="px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300
+                              {{ request()->routeIs('complaints.create') ? 'bg-white/10 text-white' : 'text-gray-300 hover:text-white hover:bg-white/5' }}">
                         Buat Pengaduan
                     </a>
                     <a href="{{ route('complaints.track') }}"
-                       class="px-4 py-2 rounded-xl text-sm font-medium transition-all duration-200
-                              {{ request()->routeIs('complaints.track') ? 'text-white shadow-md' : 'hover:bg-white/10' }}"
-                       style="{{ request()->routeIs('complaints.track') ? 'background: var(--gradient-accent);' : 'color: var(--text-secondary);' }}">
+                       class="px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300
+                              {{ request()->routeIs('complaints.track') ? 'bg-white/10 text-white' : 'text-gray-300 hover:text-white hover:bg-white/5' }}">
                         Lacak Pengaduan
                     </a>
-
-                    {{-- Dark mode toggle --}}
-                    <button @click="$store.theme.toggle()"
-                            :aria-label="$store.theme.dark ? 'Aktifkan mode terang' : 'Aktifkan mode gelap'"
-                            class="ml-1 w-9 h-9 rounded-xl flex items-center justify-center transition-all duration-200 hover:scale-110"
-                            style="background: var(--bg-glass); border: 1px solid var(--border-subtle);">
-                        <svg x-show="!$store.theme.dark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
-                             class="w-4 h-4" style="color: var(--text-secondary);" aria-hidden="true">
-                            <path d="M10 2a.75.75 0 0 1 .75.75v1.5a.75.75 0 0 1-1.5 0v-1.5A.75.75 0 0 1 10 2ZM10 15a.75.75 0 0 1 .75.75v1.5a.75.75 0 0 1-1.5 0v-1.5A.75.75 0 0 1 10 15ZM10 7a3 3 0 1 0 0 6 3 3 0 0 0 0-6ZM15.657 5.404a.75.75 0 1 0-1.06-1.06l-1.061 1.06a.75.75 0 0 0 1.06 1.06l1.06-1.06ZM6.464 14.596a.75.75 0 1 0-1.06-1.06l-1.06 1.06a.75.75 0 0 0 1.06 1.06l1.06-1.06ZM18 10a.75.75 0 0 1-.75.75h-1.5a.75.75 0 0 1 0-1.5h1.5A.75.75 0 0 1 18 10ZM5 10a.75.75 0 0 1-.75.75h-1.5a.75.75 0 0 1 0-1.5h1.5A.75.75 0 0 1 5 10ZM14.596 15.657a.75.75 0 0 0 1.06-1.06l-1.06-1.061a.75.75 0 1 0-1.06 1.06l1.06 1.06ZM5.404 6.464a.75.75 0 0 0 1.06-1.06L5.404 4.343a.75.75 0 1 0-1.06 1.06l1.06 1.061Z"/>
-                        </svg>
-                        <svg x-show="$store.theme.dark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor"
-                             class="w-4 h-4" style="color: #a5b4fc;" aria-hidden="true">
-                            <path fill-rule="evenodd" d="M7.455 2.004a.75.75 0 0 1 .26.77 7 7 0 0 0 9.958 7.967.75.75 0 0 1 1.067.853A8.5 8.5 0 1 1 6.647 1.921a.75.75 0 0 1 .808.083Z" clip-rule="evenodd"/>
-                        </svg>
-                    </button>
                 </nav>
 
                 {{-- Mobile hamburger --}}
@@ -145,7 +187,6 @@
                 </button>
             </div>
 
-            {{-- Mobile Menu --}}
             <div x-show="open"
                  x-transition:enter="transition ease-out duration-200"
                  x-transition:enter-start="opacity-0 -translate-y-2"
@@ -155,18 +196,15 @@
                  x-transition:leave-end="opacity-0 -translate-y-2"
                  class="sm:hidden pb-4 space-y-1" @click.away="open = false">
                 <a href="{{ route('complaints.create') }}"
-                   class="block px-4 py-3 rounded-xl text-sm font-medium transition-all"
-                   style="{{ request()->routeIs('complaints.create') ? 'background: var(--gradient-accent); color: white;' : 'color: var(--text-secondary);' }}">
+                   class="block px-4 py-3 rounded-xl text-sm font-medium transition-all
+                          {{ request()->routeIs('complaints.create') ? 'bg-white/10 text-white' : 'text-gray-300 hover:text-white' }}">
                     Buat Pengaduan
                 </a>
                 <a href="{{ route('complaints.track') }}"
-                   class="block px-4 py-3 rounded-xl text-sm font-medium transition-all"
-                   style="{{ request()->routeIs('complaints.track') ? 'background: var(--gradient-accent); color: white;' : 'color: var(--text-secondary);' }}">
+                   class="block px-4 py-3 rounded-xl text-sm font-medium transition-all
+                          {{ request()->routeIs('complaints.track') ? 'bg-white/10 text-white' : 'text-gray-300 hover:text-white' }}">
                     Lacak Pengaduan
                 </a>
-                <button @click="$store.theme.toggle()" class="flex items-center gap-2 px-4 py-3 text-sm font-medium rounded-xl w-full" style="color: var(--text-secondary);">
-                    <span x-text="$store.theme.dark ? '☀️ Mode Terang' : '🌙 Mode Gelap'"></span>
-                </button>
             </div>
         </div>
     </header>

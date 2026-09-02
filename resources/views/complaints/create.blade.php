@@ -21,7 +21,7 @@
         </div>
     </div>
 
-    <h1 class="text-2xl font-bold mb-2" style="color: var(--text-primary)">Pengaduan Berhasil Dikirim!</h1>
+    <h1 class="text-4xl font-bold mb-2 serif-title" style="color: var(--text-primary)">Pengaduan Berhasil Dikirim!</h1>
     <p class="text-sm mb-8" style="color: var(--text-secondary)">Simpan kode unik berikut untuk memantau status pengaduan Anda.</p>
 
     {{-- Tracking code card --}}
@@ -78,12 +78,7 @@
 
 {{-- ── PAGE HEADER ─────────────────────────────────────────────────────── --}}
 <div class="stagger max-w-2xl mb-10">
-    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-semibold mb-4"
-         style="background: rgba(99,102,241,0.12); color: #6366f1; border: 1px solid rgba(99,102,241,0.20);">
-        <span class="w-1.5 h-1.5 rounded-full bg-indigo-500 animate-pulse" aria-hidden="true"></span>
-        Layanan Terbuka untuk Publik
-    </div>
-    <h1 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-3" style="color: var(--text-primary)">
+    <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight mb-3 serif-title" style="color: var(--text-primary)">
         Buat Pengaduan
     </h1>
     <p class="text-base leading-relaxed" style="color: var(--text-secondary)">
@@ -139,9 +134,8 @@
                 <div class="flex items-center gap-3">
                     <div class="w-8 h-8 rounded-xl flex items-center justify-center shrink-0 text-sm font-bold text-white"
                          style="background: var(--gradient-accent);" aria-hidden="true">1</div>
-                    <h2 id="section-identity" class="text-base font-semibold" style="color: var(--text-primary)">Identitas Pelapor</h2>
+                    <h2 id="section-identity" class="text-lg font-semibold serif-title" style="color: var(--text-primary)">Identitas Pelapor</h2>
                 </div>
-                <span class="text-xs italic" style="color: var(--text-muted)">opsional — boleh anonim</span>
             </div>
 
             <div class="grid sm:grid-cols-2 gap-4 mb-5">
@@ -234,7 +228,7 @@
             <div class="flex items-center gap-3 mb-5">
                 <div class="w-8 h-8 rounded-xl flex items-center justify-center shrink-0 text-sm font-bold text-white"
                      style="background: var(--gradient-accent);" aria-hidden="true">2</div>
-                <h2 id="section-detail" class="text-base font-semibold" style="color: var(--text-primary)">Detail Pengaduan</h2>
+                <h2 id="section-detail" class="text-lg font-semibold serif-title" style="color: var(--text-primary)">Detail Pengaduan</h2>
             </div>
 
             <div class="space-y-4">
@@ -303,7 +297,7 @@
                 <div class="flex items-center gap-3">
                     <div class="w-8 h-8 rounded-xl flex items-center justify-center shrink-0 text-sm font-bold text-white"
                          style="background: var(--gradient-accent);" aria-hidden="true">3</div>
-                    <h2 id="section-attach" class="text-base font-semibold" style="color: var(--text-primary)">Lampiran</h2>
+                    <h2 id="section-attach" class="text-lg font-semibold serif-title" style="color: var(--text-primary)">Lampiran</h2>
                 </div>
                 <span class="text-xs italic" style="color: var(--text-muted)">opsional · maks 5 file</span>
             </div>

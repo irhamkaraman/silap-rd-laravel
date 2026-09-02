@@ -1,7 +1,5 @@
 <div align="center">
 
-<img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="300" alt="Laravel">
-
 # SILAP-RD
 
 ### Sistem Informasi Layanan Pengaduan Ramah Disabilitas
@@ -15,6 +13,19 @@
 [![License](https://img.shields.io/badge/License-MIT-22C55E?style=flat-square)](LICENSE)
 
 </div>
+
+---
+
+## 📸 Screenshots
+
+### Landing Page
+![Landing Page](public/img/example_welcome_view.png)
+
+### Dashboard Admin
+![Dashboard Admin](public/img/example_dashboard_view.png)
+
+### Daftar Pengaduan (Admin)
+![Daftar Pengaduan](public/img/example_complaints_view.png)
 
 ---
 
