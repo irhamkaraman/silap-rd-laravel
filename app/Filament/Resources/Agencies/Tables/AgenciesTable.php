@@ -2,9 +2,11 @@
 
 namespace App\Filament\Resources\Agencies\Tables;
 
+use App\Models\Agency;
 use Filament\Actions\BulkActionGroup;
 use Filament\Actions\DeleteBulkAction;
 use Filament\Actions\EditAction;
+use Filament\Tables\Actions\DeleteAction;
 use Filament\Tables\Columns\TextColumn;
 use Filament\Tables\Table;
 
@@ -49,6 +51,14 @@ class AgenciesTable
             ->filters([])
             ->recordActions([
                 EditAction::make(),
+                DeleteAction::make()
+                    ->modalHeading('Hapus Instansi')
+                    ->modalDescription('Apakah Anda yakin ingin menghapus instansi ini? PERINGATAN: Semua Pengaduan yang terkait dengan instansi ini juga akan terhapus secara permanen!')
+                    ->modalSubmitActionLabel('Ya, Hapus Semua')
+                    ->before(function (Agency $record) {
+                        // Hapus semua relasi pengaduan sebelum instansi dihapus
+                        $record->complaints()->delete();
+                    }),
             ])
             ->toolbarActions([
                 BulkActionGroup::make([
