@@ -43,8 +43,8 @@ html {
     --border-subtle: rgba(255, 255, 255, 0.08);
     
     --text-primary:  #ffffff;
-    --text-secondary:#9a9a9a;
-    --text-muted:    #666666;
+    --text-secondary:#d4d4d4;
+    --text-muted:    #9ca3af;
     
     --shadow-glass:  0 8px 32px rgba(0, 0, 0, 0.60), 0 1px 3px rgba(0, 0, 0, 0.40);
     --shadow-card:   0 4px 24px rgba(0, 0, 0, 0.50);
