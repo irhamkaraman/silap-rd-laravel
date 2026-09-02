@@ -18,6 +18,11 @@ class ResponsesRelationManager extends RelationManager
 
     protected static ?string $title = 'Riwayat Respons';
 
+    public function isReadOnly(): bool
+    {
+        return false;
+    }
+
     public function form(Schema $schema): Schema
     {
         return $schema
