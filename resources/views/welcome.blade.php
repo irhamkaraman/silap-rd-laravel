@@ -4,7 +4,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <x-seo 
-    title="SILAPRADI — Portal Pengaduan Ramah Disabilitas" 
+    title="SILAPRADI - Portal Pengaduan Ramah Disabilitas" 
     description="Sistem Informasi Layanan Pengaduan Ramah Disabilitas - SILAPRADI. Sampaikan pengaduan Anda dengan mudah dan aman."
     image="{{ asset('img/example_welcome_view.png') }}" 
   />
