@@ -4,8 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <x-seo 
-    title="SILAP-RD — Portal Pengaduan Ramah Disabilitas" 
-    description="Sistem Informasi Layanan Pengaduan Ramah Disabilitas - SILAP-RD. Sampaikan pengaduan Anda dengan mudah dan aman."
+    title="SILAPRADI — Portal Pengaduan Ramah Disabilitas" 
+    description="Sistem Informasi Layanan Pengaduan Ramah Disabilitas - SILAPRADI. Sampaikan pengaduan Anda dengan mudah dan aman."
     image="{{ asset('img/example_welcome_view.png') }}" 
   />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cg transform='rotate(-30 12 12)'%3E%3Ccircle cx='7.3' cy='3.2' r='1.45'/%3E%3Crect x='5.5' y='4.7' width='3.6' height='14.6' rx='1.8'/%3E%3Crect x='14.9' y='4.7' width='3.6' height='14.6' rx='1.8'/%3E%3Ccircle cx='16.7' cy='20.8' r='1.45'/%3E%3C/g%3E%3C/svg%3E">
@@ -777,7 +777,7 @@
     <header class="header" role="banner">
 
       <!-- Logo -->
-      <a href="#top" class="logo appear appear--scale" style="--d:0.08s" aria-label="SILAP-RD">
+      <a href="#top" class="logo appear appear--scale" style="--d:0.08s" aria-label="SILAPRADI">
         <svg class="logo-mark" width="22" height="22" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
           <g transform="rotate(-30 12 12)">
             <circle cx="7.3" cy="3.2" r="1.45"/>
@@ -786,15 +786,11 @@
             <circle cx="16.7" cy="20.8" r="1.45"/>
           </g>
         </svg>
-        SILAP<span class="logo-suffix">-RD</span>
+        SILAPRADI
       </a>
 
       <!-- Nav -->
       <nav id="site-nav" aria-label="Primary">
-        <a href="#beranda"      class="nav-link appear appear--scale" style="--d:0.16s">Beranda</a>
-        <a href="#alur"         class="nav-link appear appear--soft"  style="--d:0.28s">Alur Laporan</a>
-        <a href="#aksesibilitas" class="nav-link appear appear--scale" style="--d:0.40s">Aksesibilitas</a>
-        <a href="#lacak"        class="nav-link appear appear--soft"  style="--d:0.52s">Lacak Tiket</a>
       </nav>
 
       <!-- Header CTA + burger -->

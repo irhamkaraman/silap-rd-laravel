@@ -12,7 +12,7 @@ class AdminUserSeeder extends Seeder
         User::firstOrCreate(
             ['email' => 'admin@silapradi.test'],
             [
-                'name' => 'Admin SILAP-RD',
+                'name' => 'Admin SILAPRADI',
                 'password' => 'password',
             ]
         );

@@ -147,7 +147,7 @@
                 {{-- Brand --}}
                 <a href="{{ url('/') }}"
                    class="flex items-center gap-3 group"
-                   aria-label="SILAP-RD — Beranda">
+                   aria-label="SILAPRADI — Beranda">
                     <div class="text-white">
                         <svg class="w-6 h-6 transition-transform group-hover:-rotate-12" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
                             <g transform="rotate(-30 12 12)">
@@ -159,7 +159,7 @@
                         </svg>
                     </div>
                     <div class="leading-tight">
-                        <div class="text-sm font-bold text-white tracking-tight">SILAP-RD</div>
+                        <div class="text-sm font-bold text-white tracking-tight">SILAPRADI</div>
                     </div>
                 </a>
 
@@ -221,7 +221,7 @@
     <footer class="relative z-10 border-t py-8 mt-8" style="border-color: var(--border-subtle);">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-center justify-between gap-3">
             <p class="text-xs" style="color: var(--text-muted)">
-                © {{ date('Y') }} SILAP-RD — Sistem Informasi Layanan Pengaduan Ramah Disabilitas
+                © {{ date('Y') }} SILAPRADI — Sistem Informasi Layanan Pengaduan Ramah Disabilitas
             </p>
             <p class="text-xs" style="color: var(--text-muted)">
                 Dibangun untuk masyarakat yang inklusif dan berkeadilan 💙

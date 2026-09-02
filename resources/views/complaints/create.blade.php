@@ -3,8 +3,8 @@
 
 @section('seo')
     <x-seo 
-        title="Buat Pengaduan - SILAP-RD" 
-        description="Buat pengaduan baru di Sistem Informasi Layanan Pengaduan Ramah Disabilitas (SILAP-RD)."
+        title="Buat Pengaduan - SILAPRADI" 
+        description="Buat pengaduan baru di Sistem Informasi Layanan Pengaduan Ramah Disabilitas (SILAPRADI)."
         image="{{ asset('img/example_lapor_view.png') }}"
     />
 @endsection

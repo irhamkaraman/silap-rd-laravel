@@ -1,6 +1,6 @@
 <div align="center">
 
-# SILAP-RD
+# SILAPRADI
 
 ### Sistem Informasi Layanan Pengaduan Ramah Disabilitas
 
@@ -29,9 +29,9 @@
 
 ---
 
-## ✨ Tentang Proyek
+## ✨ Tentang SILAPRADI
 
-**SILAP-RD** adalah sistem informasi berbasis web yang memungkinkan masyarakat — terutama penyandang disabilitas — untuk menyampaikan pengaduan terkait layanan publik secara aman, mudah, dan transparan.
+**SILAPRADI** adalah sistem informasi berbasis web yang memungkinkan masyarakat — terutama penyandang disabilitas — untuk menyampaikan pengaduan terkait layanan publik secara aman, mudah, dan transparan.
 
 Sistem ini terdiri dari dua sisi:
 

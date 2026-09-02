@@ -1,6 +1,6 @@
 @props([
-    'title' => 'SILAP-RD — Layanan Pengaduan Ramah Disabilitas',
-    'description' => 'Sistem Informasi Layanan Pengaduan Ramah Disabilitas – SILAP-RD. Sampaikan pengaduan Anda dengan mudah dan aman.',
+    'title' => 'SILAPRADI - Layanan Pengaduan Ramah Disabilitas',
+    'description' => 'Sistem Informasi Layanan Pengaduan Ramah Disabilitas – SILAPRADI. Sampaikan pengaduan Anda dengan mudah dan aman.',
     'image' => asset('img/example_welcome_view.png'),
 ])
 

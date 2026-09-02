@@ -3,8 +3,8 @@
 
 @section('seo')
     <x-seo 
-        title="Lacak Pengaduan — SILAP-RD" 
-        description="Lacak status pengaduan Anda di Sistem Informasi Layanan Pengaduan Ramah Disabilitas (SILAP-RD)."
+        title="Lacak Pengaduan - SILAPRADI" 
+        description="Lacak status pengaduan Anda di Sistem Informasi Layanan Pengaduan Ramah Disabilitas (SILAPRADI)."
         image="{{ asset('img/example_cek_status.png') }}"
     />
 @endsection

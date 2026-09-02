@@ -28,7 +28,7 @@ class AdminPanelProvider extends PanelProvider
             ->id('admin')
             ->path('admin')
             ->login()
-            ->brandName('SILAP-RD Admin')
+            ->brandName('SILAPRADI Admin')
             ->colors([
                 'primary' => Color::Blue,
             ])
