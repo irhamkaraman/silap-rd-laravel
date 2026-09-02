@@ -1,6 +1,14 @@
 @extends('layouts.guest')
 @section('title', 'Lacak Pengaduan')
 
+@section('seo')
+    <x-seo 
+        title="Lacak Pengaduan — SILAP-RD" 
+        description="Lacak status pengaduan Anda di Sistem Informasi Layanan Pengaduan Ramah Disabilitas (SILAP-RD)."
+        image="{{ asset('img/example_cek_status.png') }}"
+    />
+@endsection
+
 @section('content')
 
 {{-- ── PAGE HEADER ─────────────────────────────────────────────────────── --}}

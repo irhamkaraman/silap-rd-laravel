@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Sistem Informasi Layanan Pengaduan Ramah Disabilitas – SILAP-RD. Sampaikan pengaduan Anda dengan mudah dan aman.">
+    @hasSection('seo')
+        @yield('seo')
+    @else
+        <x-seo />
+    @endif
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>@yield('title', 'SILAP-RD') — Layanan Pengaduan Ramah Disabilitas</title>
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">

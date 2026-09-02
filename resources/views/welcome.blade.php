@@ -3,7 +3,11 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SILAP-RD — Portal Pengaduan Ramah Disabilitas</title>
+  <x-seo 
+    title="SILAP-RD — Portal Pengaduan Ramah Disabilitas" 
+    description="Sistem Informasi Layanan Pengaduan Ramah Disabilitas - SILAP-RD. Sampaikan pengaduan Anda dengan mudah dan aman."
+    image="{{ asset('img/example_welcome_view.png') }}" 
+  />
   <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='white'%3E%3Cg transform='rotate(-30 12 12)'%3E%3Ccircle cx='7.3' cy='3.2' r='1.45'/%3E%3Crect x='5.5' y='4.7' width='3.6' height='14.6' rx='1.8'/%3E%3Crect x='14.9' y='4.7' width='3.6' height='14.6' rx='1.8'/%3E%3Ccircle cx='16.7' cy='20.8' r='1.45'/%3E%3C/g%3E%3C/svg%3E">
   <style>
     /* ── 0. Force black — never flash white ── */
