@@ -45,6 +45,7 @@ class ResponsesRelationManager extends RelationManager
             ->columns([
                 TextColumn::make('user.name')
                     ->label('Petugas')
+                    ->getStateUsing(fn ($record) => $record->user?->agency?->name ?? $record->user?->name ?? 'Sistem')
                     ->badge()
                     ->color('primary'),
 

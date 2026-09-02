@@ -20,18 +20,27 @@ class ViewComplaint extends ViewRecord
                 ->icon('heroicon-o-arrow-path')
                 ->color('info')
                 ->visible(fn (Complaint $record): bool => in_array($record->status, ['pending']))
-                ->requiresConfirmation()
-                ->modalHeading('Proses Laporan Ini?')
-                ->modalDescription('Status pengaduan akan diubah menjadi "Sedang Diproses". Pelapor dapat melihat perubahan ini.')
-                ->modalSubmitActionLabel('Ya, Proses Sekarang')
-                ->action(function (Complaint $record): void {
-                    $record->update(['status' => 'processing']);
+                ->form([
+                    \Filament\Forms\Components\Select::make('agency_id')
+                        ->label('Teruskan ke Instansi')
+                        ->relationship('agency', 'name')
+                        ->required()
+                        ->placeholder('Pilih Instansi yang akan menangani'),
+                ])
+                ->modalHeading('Proses & Teruskan Laporan')
+                ->modalDescription('Pilih instansi yang akan menangani pengaduan ini. Status akan diubah menjadi "Sedang Diproses".')
+                ->modalSubmitActionLabel('Proses & Teruskan')
+                ->action(function (array $data, Complaint $record): void {
+                    $record->update([
+                        'status' => 'processing',
+                        'agency_id' => $data['agency_id']
+                    ]);
                     Notification::make()
-                        ->title('Status diperbarui')
-                        ->body('Laporan kini berstatus "Sedang Diproses".')
+                        ->title('Laporan diteruskan')
+                        ->body('Laporan kini berstatus "Sedang Diproses" dan telah diteruskan ke instansi terkait.')
                         ->success()
                         ->send();
-                    $this->refreshFormData(['status']);
+                    $this->refreshFormData(['status', 'agency_id']);
                 }),
 
             Action::make('resolve')
