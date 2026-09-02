@@ -1,0 +1,89 @@
+<?php
+
+namespace App\Filament\Resources\Complaints\RelationManagers;
+
+use Filament\Actions\BulkActionGroup;
+use Filament\Actions\CreateAction;
+use Filament\Actions\DeleteAction;
+use Filament\Actions\DeleteBulkAction;
+use Filament\Forms\Components\Textarea;
+use Filament\Resources\RelationManagers\RelationManager;
+use Filament\Schemas\Schema;
+use Filament\Tables\Columns\TextColumn;
+use Filament\Tables\Table;
+
+class ResponsesRelationManager extends RelationManager
+{
+    protected static string $relationship = 'responses';
+
+    protected static ?string $title = 'Riwayat Respons';
+
+    public function form(Schema $schema): Schema
+    {
+        return $schema
+            ->components([
+                Textarea::make('response')
+                    ->label('Isi Respons / Pembaruan Status')
+                    ->required()
+                    ->rows(5)
+                    ->placeholder('Tulis pembaruan status atau tindak lanjut pengaduan ini...')
+                    ->helperText('Respons ini akan terlihat oleh pelapor di halaman pelacakan publik.')
+                    ->columnSpanFull(),
+            ]);
+    }
+
+    /**
+     * Automatically inject the authenticated admin's user_id before saving.
+     *
+     * @param  array<string, mixed>  $data
+     * @return array<string, mixed>
+     */
+    protected function mutateFormDataBeforeCreate(array $data): array
+    {
+        $data['user_id'] = auth()->id();
+
+        return $data;
+    }
+
+    public function table(Table $table): Table
+    {
+        return $table
+            ->recordTitleAttribute('response')
+            ->defaultSort('created_at', 'desc')
+            ->columns([
+                TextColumn::make('user.name')
+                    ->label('Petugas')
+                    ->badge()
+                    ->color('primary'),
+
+                TextColumn::make('response')
+                    ->label('Isi Respons')
+                    ->limit(120)
+                    ->tooltip(fn (string $state): string => $state)
+                    ->wrap(),
+
+                TextColumn::make('created_at')
+                    ->label('Waktu')
+                    ->dateTime('d M Y, H:i')
+                    ->since()
+                    ->sortable(),
+            ])
+            ->filters([])
+            ->headerActions([
+                CreateAction::make()
+                    ->label('Tambah Respons')
+                    ->icon('heroicon-o-plus-circle')
+                    ->modalHeading('Tambah Respons / Pembaruan'),
+            ])
+            ->recordActions([
+                DeleteAction::make(),
+            ])
+            ->toolbarActions([
+                BulkActionGroup::make([
+                    DeleteBulkAction::make(),
+                ]),
+            ])
+            ->emptyStateHeading('Belum ada respons')
+            ->emptyStateDescription('Tambahkan respons pertama untuk memberi tahu pelapor tentang perkembangan pengaduan.');
+    }
+}
