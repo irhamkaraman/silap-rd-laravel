@@ -51,8 +51,10 @@ class ResponsesRelationManager extends RelationManager
                         }
                         
                         $name = $record->user->name;
-                        if ($record->user->agency) {
-                            return $name . ' (' . $record->user->agency->name . ')';
+                        $agencyName = $record->user->agency?->name ?? $record->complaint?->agency?->name;
+                        
+                        if ($agencyName) {
+                            return $name . ' (' . $agencyName . ')';
                         }
                         
                         return $name;
