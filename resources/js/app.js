@@ -72,6 +72,13 @@ Alpine.data('fileUpload', () => ({
 Alpine.data('trackingCode', (code) => ({
     code,
     copied: false,
+    init() {
+        let saved = JSON.parse(localStorage.getItem('silap_tracking_codes') || '[]');
+        if (!saved.includes(this.code)) {
+            saved.push(this.code);
+            localStorage.setItem('silap_tracking_codes', JSON.stringify(saved));
+        }
+    },
     async copy() {
         await navigator.clipboard.writeText(this.code);
         this.copied = true;

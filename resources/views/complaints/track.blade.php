@@ -24,7 +24,7 @@
 <form method="POST" action="{{ route('complaints.show') }}"
       aria-label="Formulir lacak pengaduan" class="mb-10">
     @csrf
-    <div class="glass rounded-2xl p-4 sm:p-5">
+    <div class="glass rounded-2xl p-4 sm:p-5" x-data="{ codes: JSON.parse(localStorage.getItem('silap_tracking_codes') || '[]') }">
         <div class="flex flex-col sm:flex-row gap-3">
             <div class="flex-1">
                 <label for="tracking_code" class="sr-only">Kode Pengaduan</label>
@@ -40,11 +40,19 @@
                            aria-describedby="tracking_code_help"
                            autocomplete="off" spellcheck="false"
                            placeholder="Contoh: SILAP-20260902-A3K9F"
+                           list="history_codes"
                            class="input-glass pl-10 @error('tracking_code') error @enderror"
                            style="font-family: var(--font-mono); letter-spacing: 0.05em;">
+                    
+                    <datalist id="history_codes">
+                        <template x-for="code in codes" :key="code">
+                            <option :value="code"></option>
+                        </template>
+                    </datalist>
                 </div>
                 <p id="tracking_code_help" class="mt-1.5 text-xs pl-1" style="color: var(--text-muted)">
                     Kode diberikan saat Anda pertama kali mengirim pengaduan.
+                    <span x-show="codes.length > 0" class="ml-1" style="color: #6366f1;">(Riwayat tersimpan di browser Anda)</span>
                 </p>
                 @error('tracking_code')
                     <p class="mt-1 text-xs font-medium pl-1" style="color: #ef4444;" role="alert">{{ $message }}</p>

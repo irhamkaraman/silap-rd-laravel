@@ -129,6 +129,7 @@
       novalidate
       aria-label="Formulir pengaduan">
     @csrf
+    @honeypot
 
     <div class="space-y-5">
 
